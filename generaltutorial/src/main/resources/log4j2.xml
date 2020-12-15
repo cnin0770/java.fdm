@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" monitorInterval="30">
+    <Appenders>
+        <Console name="StdOut" target="SYSTEM_OUT">
+            <PatternLayout pattern="%msg%n" />
+        </Console>
+        <File name="FileAppender" filename="./src/main/resources/output.log">>
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="error">
+            <AppenderRef ref="StdOut" />
+        </Root>
+        <!--to write in file. false means if print to console. not affect appender ref-->
+        <Logger name="com.fdm.w6.log" level="error" additivity="true">
+            <AppenderRef ref="FileAppender" />
+        </Logger>
+        <Logger name="com.fdm.w6.log.LogManagerApp"
+                level="info">
+        </Logger>
+        <Logger name="Hey" level="info" additivity="true">
+            <AppenderRef ref="FileAppender" />
+        </Logger>
+        <Logger name="com.fdm.w6.log.LoggingMessagesApp"
+                level="info" />
+    </Loggers>
+</Configuration>

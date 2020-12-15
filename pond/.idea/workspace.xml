@@ -1,0 +1,904 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e83d6107-ce4d-4f71-b7e7-ac574547aeb0" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/frontend/package.json" />
+  </component>
+  <component name="ProjectId" id="1chFU6pj6k2DMefrUnazU0gHjJb" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="h2" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/backend/src/main/java/com/fdm/pond/controller" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static" />
+      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
+    </key>
+  </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8088/api/schedule" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8088/api/skill" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:8088/api/skill" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="name" />
+                <option name="value" value="Java" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8088/api/skill" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="name" />
+                <option name="value" value="Driving" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:8088/api/opportunity" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8088/api/opportunity" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8088/api/opportunity" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8088/api/skill" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="name" />
+                <option name="value" value="Java" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:8088/api/schedule" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="2" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8088/api/opportunity/" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8088/api/schedule/interview" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;content&quot;: &quot;an interview&quot;,&#10;  &quot;consultantId&quot;: 2,&#10;  &quot;time&quot;: &quot;today&quot;,&#10;  &quot;opportunityId&quot;: 1,&#10;  &quot;date&quot;: &quot;1818-09-01&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8088/api/schedule/selflearning" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;content&quot;: &quot;self teaching&quot;,&#10;  &quot;description&quot;: &quot;yeah&quot;,&#10;  &quot;dateToBeDone&quot;: &quot;2077-05-01&quot;,&#10;  &quot;consultantId&quot;: 2,&#10;  &quot;skill&quot;: &quot;java&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8088/api/schedule" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="consultant" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="interview" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8088/api/schedule" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="interview" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8088/api/schedule" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="consultant" />
+                <option name="value" value="2" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:8080/api/skill" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="name" />
+                <option name="value" value="Java" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/api/skill" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:8080/api/skill" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="name" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:8080/api/skill" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/api/skill" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="name" />
+                <option name="value" value="Java" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/api/skill" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="name" />
+                <option name="value" value="Driving" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/api/skill" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="Java" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="2" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="interview" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule/selflearning" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;content&quot;: &quot;self teaching&quot;,&#10;  &quot;description&quot;: &quot;yeah&quot;,&#10;  &quot;dateToBeDone&quot;: &quot;2077-05-01&quot;,&#10;  &quot;consultantId&quot;: 2,&#10;  &quot;skill&quot;: &quot;java&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule/interview" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;content&quot;: &quot;an interview&quot;,&#10;  &quot;consultantId&quot;: 2,&#10;  &quot;time&quot;: &quot;today&quot;,&#10;  &quot;opportunityId&quot;: 1,&#10;  &quot;date&quot;: &quot;1818-09-01&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="consultant" />
+                <option name="value" value="2" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="consultant" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="interview" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule/selflearning" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;content&quot;: &quot;self teaching&quot;,&#10;  &quot;description&quot;: &quot;yeah&quot;,&#10;  &quot;dateToBeDone&quot;: &quot;tomorrow&quot;,&#10;  &quot;consultantId&quot;: 2,&#10;  &quot;skill&quot;: &quot;java&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule/interview" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;content&quot;: &quot;an interview&quot;,&#10;  &quot;consultantId&quot;: 2,&#10;  &quot;time&quot;: &quot;today&quot;,&#10;  &quot;opportunityId&quot;: 1&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/api/interview" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;content&quot;: &quot;an interview&quot;,&#10;  &quot;consultantId&quot;: 2,&#10;  &quot;time&quot;: &quot;today&quot;,&#10;  &quot;opportunityId&quot;: 1&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/api/opportunity/" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/api/opportunity" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/api/selflearning" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;content&quot;: &quot;self teaching&quot;,&#10;  &quot;description&quot;: &quot;yeah&quot;,&#10;  &quot;dateToBeDone&quot;: &quot;tomorrow&quot;,&#10;  &quot;consultantId&quot;: 2,&#10;  &quot;skill&quot;: &quot;java&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="consultant" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule/selflearning" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;content&quot;: &quot;self learning&quot;,&#10;  &quot;description&quot;: &quot;nah&quot;,&#10;  &quot;dateToBeDone&quot;: &quot;yesterday&quot;,&#10;  &quot;skill&quot;: &quot;java&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule/selflearning" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;content&quot;: &quot;self teaching&quot;,&#10;  &quot;description&quot;: &quot;yeah&quot;,&#10;  &quot;dateToBeDone&quot;: &quot;tomorrow&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule/selflearning" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;content&quot;: &quot;self teaching&quot;,&#10;  &quot;description&quot;: &quot;yeah&quot;,&#10;  &quot;dateToBeDone&quot;: &quot;tomorrow&quot;,&#10;  &quot;skill&quot;: &quot;java&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule/1" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule/consultant/1" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule/all" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule/skills" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule/selflearning" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;content&quot;: &quot;self teaching&quot;,&#10;  &quot;description&quot;: &quot;yeah&quot;,&#10;  &quot;dateToBeDone&quot;: &quot;tomorrow&quot;,&#10;  &quot;skill&quot;: {&#10;    &quot;name&quot;: &quot;java&quot;&#10;  }&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule/selflearning" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;content&quot;: &quot;self learning&quot;,&#10;  &quot;description&quot;: &quot;nah&quot;,&#10;  &quot;dateToBeDone&quot;: &quot;yesterday&quot;,&#10;  &quot;skill&quot;: {&#10;    &quot;name&quot;: &quot;java&quot;&#10;  }&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule/selflearning" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;content&quot;: &quot;self learning&quot;,&#10;  &quot;description&quot;: &quot;nah&quot;,&#10;  &quot;dateToBeDone&quot;: &quot;yesterday&quot;,&#10;  &quot;skill&quot;: {&#10;    &quot;id&quot;: &quot;Java&quot;&#10;  }&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="PUT" />
+          <option name="urlBase" value="http://localhost:8080/api/schedule/selflearning" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;content&quot;: &quot;self learning&quot;,&#10;  &quot;description&quot;: &quot;nah&quot;,&#10;  &quot;dateToBeDone&quot;: &quot;yesterday&quot;,&#10;  &quot;skill&quot;: {&#10;    &quot;id&quot;: &quot;Java&quot;&#10;  }&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.PondApplication">
+    <configuration name="api#1 (1)" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/backend/src/test/java/com/fdm/pond/api.http" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="api#10" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/test/java/com/fdm/pond/api.http" index="10" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="api#11" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/test/java/com/fdm/pond/api.http" index="11" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="api#14" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/test/java/com/fdm/pond/api.http" index="14" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="api#8" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/test/java/com/fdm/pond/api.http" index="8" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="PondApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="pond" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.fdm.pond.PondApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.api#1 (1)" />
+        <item itemvalue="HTTP Request.api#8" />
+        <item itemvalue="HTTP Request.api#10" />
+        <item itemvalue="HTTP Request.api#11" />
+        <item itemvalue="HTTP Request.api#14" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e83d6107-ce4d-4f71-b7e7-ac574547aeb0" name="Default Changelist" comment="" />
+      <created>1590972930572</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590972930572</updated>
+      <workItem from="1590972935008" duration="2649000" />
+      <workItem from="1590978260902" duration="4842000" />
+      <workItem from="1591057568854" duration="555000" />
+      <workItem from="1591071343309" duration="5957000" />
+      <workItem from="1591140885436" duration="5095000" />
+      <workItem from="1591314503940" duration="494000" />
+      <workItem from="1591315327305" duration="12696000" />
+      <workItem from="1591334932041" duration="8253000" />
+      <workItem from="1591344662485" duration="217000" />
+      <workItem from="1591661676925" duration="4050000" />
+      <workItem from="1591667733783" duration="1757000" />
+      <workItem from="1591696487615" duration="521000" />
+      <workItem from="1591745820300" duration="10791000" />
+      <workItem from="1591926856988" duration="1545000" />
+      <workItem from="1591928688795" duration="1127000" />
+      <workItem from="1592181301369" duration="132000" />
+      <workItem from="1592520381399" duration="54000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="320" y="109" key="#Plugins" timestamp="1591315344213">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="320" y="109" key="#Plugins/0.23.1440.877@0.23.1440.877" timestamp="1591315344213" />
+    <state x="458" y="234" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1591340403294">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="458" y="234" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.23.1440.877@0.23.1440.877" timestamp="1591340403294" />
+    <state x="320" y="127" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591928582315">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="320" y="127" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1591928582315" />
+    <state x="414" y="270" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591752366085">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="414" y="270" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.877@0.23.1440.877" timestamp="1591752366085" />
+    <state x="533" y="175" key="#com.intellij.ide.util.MemberChooser" timestamp="1591340292187">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="533" y="175" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877@0.23.1440.877" timestamp="1591340292187" />
+    <state x="408" y="204" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1591315256616">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="408" y="204" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.877@0.23.1440.877" timestamp="1591315256616" />
+    <state x="301" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591332614607">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="301" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.877@0.23.1440.877" timestamp="1591332614607" />
+    <state width="1398" height="283" key="GridCell.Tab.0.bottom" timestamp="1591947177141">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="283" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1591947177141" />
+    <state width="1398" height="283" key="GridCell.Tab.0.center" timestamp="1591947177140">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="283" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1591947177140" />
+    <state width="1398" height="283" key="GridCell.Tab.0.left" timestamp="1591947177139">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="283" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1591947177139" />
+    <state width="1398" height="283" key="GridCell.Tab.0.right" timestamp="1591947177140">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="283" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1591947177140" />
+    <state width="1398" height="283" key="GridCell.Tab.1.bottom" timestamp="1591947177116">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="283" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1591947177116" />
+    <state width="1398" height="283" key="GridCell.Tab.1.center" timestamp="1591947177115">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="283" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1591947177115" />
+    <state width="1398" height="283" key="GridCell.Tab.1.left" timestamp="1591947177115">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="283" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1591947177115" />
+    <state width="1398" height="283" key="GridCell.Tab.1.right" timestamp="1591947177116">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="283" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1591947177116" />
+    <state width="1398" height="286" key="GridCell.Tab.2.bottom" timestamp="1591334906403">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="286" key="GridCell.Tab.2.bottom/0.23.1440.877@0.23.1440.877" timestamp="1591334906403" />
+    <state width="1398" height="286" key="GridCell.Tab.2.center" timestamp="1591334906402">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="286" key="GridCell.Tab.2.center/0.23.1440.877@0.23.1440.877" timestamp="1591334906402" />
+    <state width="1398" height="286" key="GridCell.Tab.2.left" timestamp="1591334906400">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="286" key="GridCell.Tab.2.left/0.23.1440.877@0.23.1440.877" timestamp="1591334906400" />
+    <state width="1398" height="286" key="GridCell.Tab.2.right" timestamp="1591334906403">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="286" key="GridCell.Tab.2.right/0.23.1440.877@0.23.1440.877" timestamp="1591334906403" />
+    <state x="512" y="171" key="RollbackChangesDialog" timestamp="1591340516553">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="512" y="171" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1591340516553" />
+    <state x="221" y="63" key="SettingsEditor" timestamp="1591928768814">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="221" y="63" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1591928768814" />
+    <state x="507" y="246" key="chooseDestDirectoryDialog" timestamp="1591928361009">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="507" y="246" key="chooseDestDirectoryDialog/0.23.1440.877@0.23.1440.877" timestamp="1591928361009" />
+    <state x="100" y="123" width="1240" height="677" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1590978245310">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="100" y="123" width="1240" height="677" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.877@0.23.1440.877" timestamp="1590978245310" />
+  </component>
+</project>

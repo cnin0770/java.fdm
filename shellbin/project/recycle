@@ -1,0 +1,158 @@
+#!/bin/bash
+
+# use env variables
+root_path=$SHELLBIN_ROOT_PATH
+if [[ ! $root_path ]]; then
+    echo 'Please source init.sh first.'
+    exit 1
+fi
+source $root_path/project/init.sh
+
+function optFunc() {
+    thisCommand=$(echo $0 | rev | cut -d"/" -f1 | rev)
+    interact_mode=false
+    verbose_mode=false
+    recursive_mode=false
+    while getopts :ivr opt
+    do
+        case $opt in
+            i) 
+                interact_mode=true ;;
+            v) 
+                verbose_mode=true ;;
+            r)
+                recursive_mode=true ;;
+            \?) 
+                echo "bash $thisCommand: invalid option -'$OPTARG'"
+                echo "usage: bash $thisCommand |-v |-i |-r file_paths"
+                exit 1 ;;
+        esac
+    done
+}
+
+# validate args before processing
+function validateRecycle() {
+    val_mark=false
+    file_mark=false
+    local item_name=$1
+
+    for v_r_i in $protected_files; do
+        if [[ "$item_name" == *"$v_r_i"* ]]; then
+            echo "Attempting to delete $item_name - operation aborted."
+            return 1
+        fi
+    done
+
+    if [[ -d $item_name ]]; then
+        val_mark=true
+    elif [[ -f $item_name ]]; then
+        val_mark=true
+        file_mark=true
+    fi
+}
+
+# core function handling single file and update .restore.info
+function recycleFile() {
+    # readlink -f not supported by MacOS, used greadlink instead. change back to readlink in ubuntu
+    local file_path=$(readlink -f $1)
+
+    local inode_info=$(ls -i $1 | cut -d" " -f1)
+    local title_info=$(echo $1 | rev | cut -d"/" -f1 | rev)
+    local file_info="$title_info%$inode_info"
+
+    # interactive mode 
+    if $interact_mode ; then
+        read -p "?Confirm recycling file $title_info ? y/n " r_f_opt
+        r_f_opt=$(echo $r_f_opt | tr '[:upper:]' '[:lower:]' | cut -c 1)
+        if [ ! $r_f_opt = 'y' ] ; then
+            echo "Recycle aborted."
+            return 1
+        fi
+    fi
+
+    # recycle action
+    file_info=$(tr '%' '_' <<< $file_info)
+    echo "$file_info:$file_path" >> $restore_info_path
+    mv $1 $bin_path/$file_info
+
+    # verbose mode
+    if $verbose_mode ; then
+        echo "$title_info recycled successfully."
+    fi
+}
+
+# handle dir by recording the path and rmdir empty path
+function recycleDir(){
+    local dir_path=$1
+    local dir_id=$2
+    local title_info=$(echo $dir_path | rev | cut -d"/" -f1 | rev)
+    local dir_info="$title_info%$dir_id"
+
+    # interactive mode 
+    if $interact_mode ; then
+        read -p "?Confirm recycling directory $title_info ? y/n " r_d_opt
+        r_d_opt=$(echo $r_d_opt | tr '[:upper:]' '[:lower:]' | cut -c 1)
+        if [ ! $r_d_opt = 'y' ] ; then
+            echo 'Recycle aborted.'
+            return 1
+        fi
+    fi
+
+    # recycle action
+    dir_info=$(tr '%' '_' <<< $dir_info)
+    echo "$dir_info:$dir_path" >> $restore_info_path
+    rmdir $dir_path
+
+    # verbose mode
+    if $verbose_mode ; then
+        echo "$title_info recycled successfully."
+    fi
+}
+
+# handling recursive recycle, dividing into files and dir
+function breakDownDir(){
+    local dir_id=$(echo d${RANDOM:0:4})
+    local dir_real_path=$(realpath $1)
+    local broke_down_files=$(find $dir_real_path -type f)
+    local broke_down_dir=$(find $dir_real_path -type d | sort -r)
+
+    for b_d_f_i in $(cat <<< $broke_down_files)
+    do 
+        recycleFile $b_d_f_i
+    done
+
+    for b_d_d_i in $(cat <<< $broke_down_dir)
+    do 
+        recycleDir $b_d_d_i $dir_id
+    done
+}
+
+### MAIN ###
+optFunc $*
+shift $[OPTIND - 1]
+
+if [[ ! $* ]]; then
+    echo 'No file name provided.'
+    exit 1
+fi
+
+for recycle_i in $* 
+do 
+    # wildcard is included by " operator
+    validateRecycle $recycle_i
+    if ! $val_mark; then
+        echo "$recycle_i does not exist."
+        continue
+    fi
+
+    if $file_mark; then
+        recycleFile $recycle_i
+    else
+        if $recursive_mode; then
+            breakDownDir $recycle_i
+        else 
+            echo "$recycle_i: Directory name provided. Operation aborted."
+            continue
+        fi
+    fi
+done

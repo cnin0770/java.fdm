@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href='/webjars/bootstrap/css/bootstrap.min.css' rel='stylesheet'>
+    <link href="/css/form.css" rel="stylesheet">
+    <link href="/css/background.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Add Option</title>
+
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/webjars/vue/vue.min.js"></script>
+    <script src="/webjars/axios/dist/axios.min.js"></script>
+</head>
+<body style="background-image: url('images/image1.jpg');">
+<div th:replace="navbar :: header"></div>
+
+<div class="bg-text">
+    <h1>Add Option</h1>
+    <form id="options" v-on:submit.prevent="postOption">
+
+        <p>
+            <label for="symbol_input">Enter Stock Symbol:</label>
+            <input id="symbol_input" v-model="symbol_input" type="text" v-on:blur="check" placeholder="stock symbol">
+        </p>
+        <p>
+            <label for="premium">Enter Premium:</label>
+            <input id="premium" v-model.number="premium" type="number"
+                   name="premium" min="0" step="0.01">
+        </p>
+        <p>
+            <label for="is_american">Please Select European or American:</label>
+            <select id="is_american" v-model="is_american" name="is_american">
+                <option value="false">European</option>
+                <option value="true">American</option>
+            </select>
+        </p>
+        <p>
+            <label for="is_call">Enter Option Type:</label>
+            <select id="is_call" v-model="is_call" name="is_call">
+                <option value="true">Call</option>
+                <option value="false">Put</option>
+            </select>
+        </p>
+        <p>
+            <label for="is_knock_in">Please Select Knock-in or Knock-out :</label>
+            <select id="is_knock_in" v-model="is_knock_in" name="is_knock_in">
+                <option value="true">Knock-in</option>
+                <option value="false">Knock-out</option>
+            </select>
+        </p>
+        <p>
+            <label for="strike_price">Enter Strike Price:</label>
+            <input id="strike_price" v-model.number="strike_price" type="number"
+                   name="strike_price" min="0" step="0.01">
+        </p>
+        <p>
+            <label for="quantity">Enter Quantity:</label>
+            <input id="quantity" v-model.number="quantity" type="number"
+                   name="quantity" min="1">
+        </p>
+        <p>
+            <label for="barrier_direction">Please select Barrier Direction:</label>
+            <select id="barrier_direction" v-model="barrier_direction"
+                    name="barrier_direction">
+                <option value="true">Up</option>
+                <option value="false">Down</option>
+            </select>
+
+        </p>
+        <p>
+            <input type="text" v-model="current_price" disabled>
+        </p>
+        <p>
+            <label for="barrier_level">Enter Barrier Level:</label>
+            <input id="barrier_level" v-model.number="barrier_level" type="number"
+                   name="barrier_level" min="0" step="0.01">
+
+        </p>
+
+        <p>
+            <label for="expiry_date">Enter Expiry Date:</label>
+            <input id="expiry_date" v-model="expiry_date" type="date"
+                   name="expiry_date" v-bind:min="today">
+        </p>
+        <p>
+            <label for="client_selected">Please select Client:</label>
+            <select id="client_selected" v-model="client_selected"
+                    name="client_selected">
+                <option v-for="client in clients" v-bind:value="client">{{ client.name }}</option>
+            </select>
+        </p>
+
+        <p v-if="errors.length">
+            <b>Please correct the following error(s):</b>
+        <ul style="all:unset;">
+            <li style="all:unset;" v-for="error in errors"> - {{ error }} <br></li>
+        </ul>
+        </p>
+        <p>
+            <button type="submit" class="button">Submit</button>
+        </p>
+    </form>
+</div>
+
+<script src="/javascript/navbar.js"></script>
+<script>
+    new Vue({
+        el: '#options',
+        data: {
+            errors: [],
+            symbol_input: null,
+            symbol_output: null,
+            premium: null,
+            is_american: null,
+            is_call: null,
+            is_knock_in: null,
+            strike_price: null,
+            quantity: null,
+            barrier_direction: null,
+            barrier_level: null,
+            expiry_date: null,
+            client_selected: null,
+            clients: null,
+            current_price: null,
+            today: null
+        },
+        mounted() {
+            this.today = this.get_today();
+            axios.get("/api/clients").then(response => (this.clients = response.data));
+        },
+        methods: {
+            check: async function () {
+                let temp = this;
+                let updated_price = await axios.get("/api/check_price/" + temp.symbol_input)
+                    .catch(function (error) {
+                        if (error.response) temp.current_price = "";
+                    });
+
+                temp.current_price = updated_price.data;
+            },
+            checkForm: function (e) {
+                if (this.symbol_input
+                    && this.is_american
+                    && this.premium
+                    && this.is_call
+                    && this.is_knock_in
+                    && this.strike_price
+                    && this.quantity
+                    && this.barrier_direction
+                    && this.barrier_level
+                    && this.expiry_date
+                    && this.client_selected
+                    && this.current_price) {
+                    return true;
+                } else {
+                    this.errors = [];
+
+                    if (!this.symbol_input) {
+                        this.errors.push('Stock Symbol required.');
+                    }
+                    if (!this.premium) {
+                        this.errors.push('Premium is required.');
+                    }
+                    if (!this.is_american) {
+                        this.errors.push('Must Select American or European.');
+                    }
+                    if (!this.is_call) {
+                        this.errors.push('Must Select Type of Option.');
+                    }
+                    if (!this.is_knock_in) {
+                        this.errors.push('Must Select Knock-in or Knock-out.');
+                    }
+                    if (!this.strike_price) {
+                        this.errors.push('Must Enter Strike Price.');
+                    }
+                    if (!this.quantity) {
+                        this.errors.push('Must Enter quantity.');
+                    }
+                    if (!this.barrier_direction) {
+                        this.errors.push('Must Enter Barrier Direction.');
+                    }
+                    if (!this.barrier_level) {
+                        this.errors.push('Must Choose Barrier Level.');
+                    }
+                    if (!this.expiry_date) {
+                        this.errors.push('Must Enter Valid date.');
+                    }
+                    if (!this.client_selected) {
+                        this.errors.push('Must select a party.');
+                    }
+                    if (!this.current_price) {
+                        this.errors.push('Must enter a valid stock symbol.');
+                    }
+                    e.preventDefault();
+                }
+            },
+            postOption: async function (e) {
+                this.checkForm();
+                axios
+                    .post("/api/options", {
+                            "american": this.is_american,
+                            "call": this.is_call,
+                            "knockIn": this.is_knock_in,
+                            "quantity": this.quantity,
+                            "strikePrice": this.strike_price,
+                            "expirationDate": this.expiry_date,
+                            "barrierDirection": this.barrier_direction,
+                            "barrierLevel": this.barrier_level,
+                            "client": this.client_selected,
+                            "stockSymbol": this.symbol_input.toUpperCase(),
+                            "premium": this.premium
+                        }
+                    )
+                    .then(function (response) {
+                            if (response.status === 200) {
+                                alert("Your option is saved.");
+                                window.location.href = "/";
+                            } else {
+                                console.log(response);
+                            }
+                        }
+                    );
+            },
+            get_today: function () {
+                let today = new Date();
+                let dd = today.getDate();
+                let mm = today.getMonth() + 1; //January is 0!
+                let yyyy = today.getFullYear();
+                if (dd < 10) {
+                    dd = '0' + dd
+                }
+                if (mm < 10) {
+                    mm = '0' + mm
+                }
+
+                today = yyyy + '-' + mm + '-' + dd;
+                return today;
+            }
+        }
+    })
+</script>
+</body>
+</html>

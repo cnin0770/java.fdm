@@ -1,0 +1,308 @@
+GET http://localhost:8088/api/schedule
+
+<> 2020-06-12T123441.401.json
+
+###
+
+GET http://localhost:8088/api/schedule
+
+<> 2020-06-12T123249.401.json
+
+###
+
+GET http://localhost:8088/api/skill
+
+<> 2020-06-10T121247.200.json
+
+###
+
+DELETE http://localhost:8088/api/skill?name=Java
+
+###
+
+POST http://localhost:8088/api/skill?name=Driving
+
+<> 2020-06-10T121238.200.json
+
+###
+
+DELETE http://localhost:8088/api/skill?name=Java
+
+<> 2020-06-10T115135.500.json
+
+###
+
+DELETE http://localhost:8088/api/opportunity?id=1
+
+<> 2020-06-10T115040.500.json
+
+###
+
+DELETE http://localhost:8088/api/skill?name=Java
+
+<> 2020-06-10T114849.500.json
+
+###
+
+GET http://localhost:8088/api/schedule
+
+<> 2020-06-10T114544.200.json
+
+###
+
+GET http://localhost:8088/api/schedule
+
+<> 2020-06-10T114247.200.json
+
+###
+
+DELETE http://localhost:8088/api/opportunity?id=1
+
+<> 2020-06-10T112953.500.json
+
+###
+
+GET http://localhost:8088/api/opportunity?id=1
+
+<> 2020-06-10T112949.200.json
+
+###
+
+GET http://localhost:8088/api/opportunity
+
+<> 2020-06-10T112937.200.json
+
+###
+
+GET http://localhost:8088/api/skill
+
+<> 2020-06-10T112933.200.json
+
+###
+
+POST http://localhost:8088/api/skill?name=Driving
+
+<> 2020-06-10T112930.200.json
+
+###
+
+DELETE http://localhost:8088/api/skill?name=Java
+
+<> 2020-06-10T112927.500.json
+
+###
+
+GET http://localhost:8088/api/skill?name=Java
+
+<> 2020-06-10T112925.200.json
+
+###
+
+GET http://localhost:8088/api/skill
+
+<> 2020-06-10T112918.200.json
+
+###
+
+DELETE http://localhost:8088/api/schedule?id=2
+
+###
+
+GET http://localhost:8088/api/opportunity/
+
+<> 2020-06-10T112903.200.json
+
+###
+
+POST http://localhost:8088/api/schedule/interview
+Content-Type: application/json
+
+{
+  "content": "an interview",
+  "consultantId": 2,
+  "time": "today",
+  "opportunityId": 1,
+  "date": "1818-09-01"
+}
+
+<> 2020-06-10T112858.200.json
+
+###
+
+GET http://localhost:8088/api/schedule
+
+<> 2020-06-10T112845.200.json
+
+###
+
+POST http://localhost:8088/api/schedule/selflearning
+Content-Type: application/json
+
+{
+  "content": "self teaching",
+  "description": "yeah",
+  "dateToBeDone": "2077-05-01",
+  "consultantId": 2,
+  "skill": "java"
+}
+
+<> 2020-06-10T112833.200.json
+
+###
+
+GET http://localhost:8088/api/schedule?consultant=1&type=interview
+
+<> 2020-06-10T112824.200.json
+
+###
+
+GET http://localhost:8088/api/schedule?type=interview
+
+<> 2020-06-10T112818.200.json
+
+###
+
+GET http://localhost:8088/api/schedule?consultant=2
+
+<> 2020-06-10T112813.200.json
+
+###
+
+GET http://localhost:8088/api/schedule
+
+<> 2020-06-10T112802.200.json
+
+###
+
+GET http://localhost:8080/api/schedule
+
+###
+
+DELETE http://localhost:8080/api/skill?name=Java
+
+<> 2020-06-10T110023.500.json
+
+###
+
+DELETE http://localhost:8080/api/skill?name=Java
+
+<> 2020-06-10T102554.500.json
+
+###
+
+GET http://localhost:8080/api/skill
+
+<> 2020-06-10T102544.200.json
+
+###
+
+DELETE http://localhost:8080/api/skill?name=1
+
+###
+
+DELETE http://localhost:8080/api/skill?id=1
+
+<> 2020-06-10T102527.400.json
+
+###
+
+GET http://localhost:8080/api/skill?name=Java
+
+<> 2020-06-10T102525.200.json
+
+###
+
+POST http://localhost:8080/api/skill?name=Driving
+
+<> 2020-06-10T102523.200.json
+
+###
+
+GET http://localhost:8080/api/skill
+
+<> 2020-06-10T102519.200.json
+
+###
+
+GET http://localhost:8080/api/skill
+
+<> 2020-06-10T101323.200.json
+
+###
+
+GET http://localhost:8080/api/skill?name=Java
+
+<> 2020-06-10T101320.200.json
+
+###
+
+POST http://localhost:8080/api/skill?name=Driving
+
+<> 2020-06-10T101317.200.json
+
+###
+
+GET http://localhost:8080/api/skill?name=Java
+
+<> 2020-06-10T101315.200.json
+
+###
+
+GET http://localhost:8080/api/skill
+
+<> 2020-06-10T101312.200.json
+
+###
+
+GET http://localhost:8080/api/skill?id=Java
+
+<> 2020-06-10T100905.200.json
+
+###
+
+GET http://localhost:8080/api/skill
+
+<> 2020-06-10T100831.200.json
+
+###
+
+POST http://localhost:8080/api/skill?name=Driving
+
+<> 2020-06-10T100826.200.json
+
+###
+
+GET http://localhost:8080/api/skill?id=Java
+
+<> 2020-06-10T100822.200.json
+
+###
+
+GET http://localhost:8080/api/skill
+
+<> 2020-06-10T100819.200.json
+
+###
+
+DELETE http://localhost:8080/api/schedule?id=2
+
+<> 2020-06-10T095156.500.json
+
+###
+
+DELETE http://localhost:8080/api/schedule?id=2
+
+###
+
+GET http://localhost:8080/api/schedule
+
+<> 2020-06-10T095147.200.json
+
+###
+
+DELETE http://localhost:8080/api/schedule?id=2
+
+<> 2020-06-10T094736.500.json
+
+###
+

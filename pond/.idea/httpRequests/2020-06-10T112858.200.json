@@ -1,0 +1,1 @@
+{"id":4,"date":"1818-08-31T14:00:00.000+00:00","content":"an interview","consultant":{"employeeID":2,"email":null,"firstName":null,"lastName":null,"password":null,"startDate":null,"endDate":null,"name":"Tod","skills":[{"name":"Java"}]},"time":"today","location":null,"type":null,"opportunity":{"id":1,"position":"CEO","skills":[{"name":"Java"}],"client":null}}

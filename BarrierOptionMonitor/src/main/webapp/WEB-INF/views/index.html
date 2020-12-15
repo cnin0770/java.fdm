@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href='/webjars/bootstrap/css/bootstrap.min.css' rel='stylesheet'>
+    <link href="/css/table.css" rel="stylesheet">
+    <link href="/css/background.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/webjars/vue/vue.min.js"></script>
+    <script src="/webjars/axios/dist/axios.min.js"></script>
+</head>
+
+<body style="background-image: url('images/image1.jpg');">
+<div th:replace="navbar :: header" id="nav"></div>
+
+<div class="bg-text">
+    <h1> Welcome
+        <a th:text="${username}"></a>
+        !
+    </h1>
+</div>
+
+<script src="/javascript/navbar.js"></script>
+</body>
+</html>

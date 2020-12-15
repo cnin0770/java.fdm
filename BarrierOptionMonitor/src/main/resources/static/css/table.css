@@ -1,0 +1,65 @@
+@charset "ISO-8859-1";
+
+table {
+    border-collapse: collapse;
+    position: auto;
+    margin: auto;
+    padding: auto;
+    overflow: auto;
+    margin: auto;
+    max-height: 100%;
+    width: 100%;
+    max-width: 98%;
+}
+
+td {
+    border: 3px solid;
+    width: auto;
+    height: auto;
+    padding: 1%;
+    margin: auto;
+    max-height: 80%;
+    font-weight: normal;
+    font-size: large;
+}
+
+th {
+    border: 3px solid;
+    width: 2%;
+    padding: 1%;
+    margin: auto;
+    max-height: 80%;
+    font-weight: bold;
+    background-color: Blue;
+    color: white;
+}
+
+thead {
+    font-weight: bold;
+}
+
+h1 {
+    text-decoration-line: underline;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+td:hover {
+    background-color: rgb(255, 255, 128);
+
+}
+
+
+.Expired {
+    background-color: rgb(255, 128, 128);
+}
+
+.Activated {
+    background-color: rgb(128, 255, 128);
+}
+
+.Exercised {
+    background-color: #80ffff;
+}

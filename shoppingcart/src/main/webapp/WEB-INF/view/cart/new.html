@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Cart</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+</head>
+<body>
+<div class="container" id="app">
+    <div style="position: relative;" class="nav-container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="/">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/cart/list">Carts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/item/list">Items</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="new_cart">
+        <form>
+            <h2>New Cart</h2>
+            <div class="form-group">
+                <label for="new_cart_label">Label</label>
+                <input class="form-control" id="new_cart_label" aria-describedby="label_helper" v-model="new_label">
+                <small id="label_helper" class="form-text text-muted">To conveniently find your cart with a name
+                    .</small>
+            </div>
+            <button type="submit" class="btn btn-primary" v-on:click="save_cart()">Submit</button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                new_label: null,
+            }
+        },
+        mounted() {
+        },
+        methods: {
+            save_cart: async function(e) {
+                await axios.post("/api/cart", {
+                    "label": this.new_label
+                }).then(async function(response) {
+                    if (response.status === 200) {
+                        await axios.get("/api/ccid/" + response.data);
+                    } else {
+                        console.log(response);
+                    }
+                    alert("New Cart " + this.new_label + " is saved! \nStart shopping with this cart!");
+                    window.location.href = "/item/list";
+                })
+
+            }
+        }
+    });
+</script>
+</body>
+</html>

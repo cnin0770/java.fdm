@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration status="warn" moniterInterval="30">
+    <Properties>
+        <Property name="LOG_FILE_APP">./logs/app.log</Property>
+        <Property name="LOG_FILE_AUDIT">./logs/audit.log</Property>
+        <Property name="PATTERN_FULL">%d{HH:mm:ss:SSS} [%t] %-5level %logger{36} - %msg%n</Property>
+        <Property name="PATTERN_SHORT">%msg%n</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${PATTERN_SHORT}"/>
+        </Console>
+        <File name="Inspect" fileName="${LOG_FILE_APP}" immediateFlush="true" append="true">
+            <PatternLayout pattern="${PATTERN_FULL}" />
+            <LevelRangeFilter minLevel="WARN" maxLevel="INFO" onMatch="ACCEPT" onMismatch="DENY" />
+        </File>
+        <File name="Audit" fileName="${LOG_FILE_AUDIT}" immediateFlush="true" append="true">
+            <PatternLayout pattern="${PATTERN_FULL}" />
+            <LevelRangeFilter minLevel="FATAL" maxLevel="WARN" onMatch="ACCEPT" onMismatch="DENY" />
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="TRACE">
+            <AppenderRef ref="Console" level="TRACE" />
+            <AppenderRef ref="Inspect" level="INFO" />
+            <AppenderRef ref="Audit" level="WARN" />
+        </Root>
+    </Loggers>
+</Configuration>

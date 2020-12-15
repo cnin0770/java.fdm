@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Stocks</title>
+
+    <link href="/css/table.css" rel="stylesheet">
+    <link href="/css/background.css" rel="stylesheet">
+    <link href='/webjars/bootstrap/css/bootstrap.min.css' rel='stylesheet'>
+
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/webjars/vue/vue.min.js"></script>
+    <script src="/webjars/axios/dist/axios.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+    <script type="text/x-template" id="modal-template">
+        <transition name="modal">
+            <div class="modal-mask">
+                <div class="modal-wrapper">
+                    <div class="modal-container">
+                        <button class="btn btn-light float-right"
+                                @click="$emit('close')">
+                            X
+                        </button>
+                        <div class="modal-body">
+                            <slot name="body">
+                                No Date Found for Selected Stock
+                            </slot>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </script>
+</head>
+<body style="background-image: url('images/image1.jpg');">
+
+<div th:replace="navbar :: header"></div>
+<div class="bg-image" style="background-image: url('images/image1.jpg');">
+</div>
+<div id="main">
+    <modal v-show="show_chart" @close="close_chart">
+        <canvas slot="body" id="stock_chart"></canvas>
+    </modal>
+    <div class="bg-text">
+        <h1>View Stocks</h1>
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"
+                   id="stock_refresh_toggle" v-on:click="refresh_func"
+                   v-model="is_refreshing">
+            <label class="custom-control-label" for="stock_refresh_toggle">AutoRefresh</label>
+        </div>
+        <br>
+        <div v-if="empty" class="loader"></div>
+        <table v-else style="color: black; background-color: lightgrey; opacity: 0.8; width: 60%;">
+            <thead>
+            <tr>
+                <th style="width: auto;">Stock Symbol</th>
+                <th style="width: auto;">Stock Name</th>
+                <th style="width: auto;">Stock Currency</th>
+                <th style="width: auto;">Stock Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="stock in stocks">
+                <td>{{ stock.symbol }}</td>
+                <td>{{ stock.name }}</td>
+                <td>{{ stock.currency }}</td>
+                <td>${{ stock.price }}</td>
+                <td>
+                    <button class="btn btn-primary" v-on:click="draw(stock.symbol)">
+                        View Chart
+                    </button>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="/javascript/navbar.js"></script>
+<script src="/javascript/stock-chart.js"></script>
+<script>
+    Vue.component("modal", {
+        template: "#modal-template"
+    });
+
+    new Vue({
+        el: '#main',
+        data() {
+            return {
+                stocks: null,
+                empty: true,
+                is_refreshing: true,
+                select: false,
+                show_chart: false
+            }
+        },
+        mounted() {
+            this.load_stocks();
+            this.refresh_true();
+        },
+        methods: {
+            load_stocks: async function () {
+                let result = await axios.get("/api/getStocks");
+                this.stocks = result.data;
+                this.empty = false;
+            },
+            refresh_func: function () {
+                let temp = this;
+                temp.is_refreshing = !temp.is_refreshing;
+                temp.refresh_true();
+                temp.refresh_false();
+                console.log(temp.is_refreshing);
+            },
+            refresh_true: function () {
+                let temp = this;
+                if (!temp.is_refreshing) return;
+                temp.$nextTick(function () {
+                    temp.load_stocks();
+                    temp.refresh_id = window.setInterval(() => {
+                        temp.load_stocks();
+                        console.log("refresh every 5 seconds.")
+                    }, 5000);
+                });
+            },
+            refresh_false: function () {
+                let temp = this;
+                if (temp.is_refreshing) return;
+                temp.$nextTick(function () {
+                    window.clearInterval(temp.refresh_id);
+                    console.log("stop refreshing.");
+                });
+            },
+            draw: async function (symbol) {
+                await draw_line_chart("stock_chart", symbol, 0);
+                this.show_chart = true;
+            },
+            close_chart: function () {
+                draw_line_chart("", "", 0);
+                this.show_chart = false;
+            }
+        }
+    });
+</script>
+</body>
+</html>

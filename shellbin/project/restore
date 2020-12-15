@@ -1,0 +1,130 @@
+#!/bin/bash
+
+# use env variables
+root_path=$SHELLBIN_ROOT_PATH
+if [[ ! $root_path ]]; then
+    echo 'Please source init.sh first.'
+    exit 1
+fi
+source $root_path/project/init.sh
+
+function optFunc() {
+    thisCommand=$(echo $0 | rev | cut -d"/" -f1 | rev)
+    verbose_mode=false
+    recursive_mode=false
+    while getopts :vr opt
+    do
+        case $opt in
+            v) 
+                verbose_mode=true ;;
+            r)
+                recursive_mode=true ;;
+            
+            \?) 
+                echo "bash $thisCommand: invalid option -'$OPTARG'"
+                echo "usage: bash $thisCommand |-v |-r file_name"
+                exit 1 ;;
+        esac
+    done
+}
+
+# core function to move single file and update .restore.info.
+function moveFile() {
+    local item_name=$1
+    local item_path=$2
+    local file_name=$(echo $item_name | cut -d'_' -f1)
+
+    # incase path no long exists
+    if [ ! -d $(dirname $item_path) ]; then
+        mkdir -p $(dirname $item_path)
+    fi
+
+    mv -f $bin_path/$item_name $item_path 2> $error_log
+
+    local temp_path="$root_path/.temp.info"
+    fgrep -v $item_name $restore_info_path > $temp_path
+    cat $temp_path > $restore_info_path
+    rm -f $temp_path
+
+    if $verbose_mode; then
+        echo "File $file_name restored successfully".
+    fi
+}
+
+# function to prepare restore files with confirmation check.
+function restoreFile() {
+    local item_name=$1
+    local item_path=$(fgrep $item_name $restore_info_path | cut -d':' -f2)
+
+    if [[ -f $item_path ]]; then
+        read -p "?Do you want to overwrite? y/n " r_f_opt
+        r_f_opt=$(echo $r_f_opt | tr '[:upper:]' '[:lower:]' | cut -c 1)
+
+        if [ $r_f_opt != 'y' ] ; then
+            echo 'Restore aborted.'
+            return 1
+        fi   
+    fi
+    moveFile $item_name $item_path
+}
+
+# core function to handle dir storing. 
+function restoreDir(){
+    # variables explained: directory's top folder's name; temporary file path; directory record in .restore.info; full path of top folder; identity of each recursive operation that defined in recycle only for directories.
+    local dir_name=$(rev <<< $1 | cut -d'/' -f1 | rev) 
+    local temp_path="$root_path/.temp.info"
+    local dir_item=$(cat $restore_info_path | grep -E $dir_name$ | sort | grep -m1 '')
+    local dir_root=$(echo $dir_item | cut -d':' -f2)
+    local dir_id=$(echo $dir_item | cut -d':' -f1 | rev | cut -d'_' -f1 | rev)
+
+    if [[ ! $dir_item || $dir_id != 'd'* ]]; then
+        echo "Dir $dir_name does not exist."
+        return  1
+    else
+        for r_d_d_i in $(cat $restore_info_path | fgrep $dir_id | sort)
+        do
+            local dir_path=$(echo $r_d_d_i | cut -d':' -f2)
+            mkdir -p $dir_path 2> $error_log
+
+            # update .restore.info
+            fgrep -v $r_d_d_i $restore_info_path > $temp_path
+            cat $temp_path > $restore_info_path
+            rm -f $temp_path
+
+            # verbose mode
+            if $verbose_mode ; then
+                echo "Dir $dir_path restored successfully." 
+            fi
+        done
+
+        # dir restore finished. handle files associated to the dir. for each file, redirect to file store functions.
+        for r_d_f_i in $(cat $restore_info_path | grep $dir_root | grep -v $dir_id)
+        do 
+            local file_info=$(echo $r_d_f_i | cut -d ':' -f1)
+            restoreFile $file_info
+        done
+    fi
+}
+
+### MAIN ###
+optFunc $*
+shift $[OPTIND - 1]
+
+# check no arg
+if [[ ! $* ]]; then
+    echo 'No file name provided.'
+    exit 1
+# check more than 1 arg
+elif [[ $2 ]]; then
+    echo 'One file/dir name allowed.'
+    exit 1
+fi
+
+if $recursive_mode; then
+    restoreDir $1
+elif [ $(find $bin_path -type f -name $1) ] ; then
+    restoreFile $1
+else 
+    echo "File $1 does not exist. If searching for a dir, use -r."
+    exit 1
+fi

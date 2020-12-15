@@ -1,0 +1,1 @@
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.2.6.RELEASE&packaging=war&jvmVersion=1.8&groupId=com.fdm.chn&artifactId=server&name=server&description=back%20end%20server&packageName=com.fdm.chn.server&dependencies=devtools,web,data-rest,security,data-jpa,h2,mysql,thymeleaf

@@ -1,0 +1,16 @@
+# this file preserves the recyclebin directory.
+
+#!/bin/bash
+
+function doo(){
+    read -p "?Confirm recycling title_info ? y/n " doo_opt
+    doo_opt=$(echo $doo_opt | tr '[:upper:]' '[:lower:]' | cut -c 1)
+
+    if [ ! $doo_opt = 'y' ] ; then
+        echo $SHELLBIN_ROOT_PATH
+    else
+        echo 'deleting files.'
+    fi
+}
+
+doo

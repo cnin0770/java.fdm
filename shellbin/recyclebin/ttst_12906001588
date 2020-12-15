@@ -1,0 +1,14 @@
+#!/bin/bash
+
+function doo(){
+    read -p "?Confirm recycling title_info ? y/n " doo_opt
+    doo_opt=$(echo $doo_opt | tr '[:upper:]' '[:lower:]' | cut -c 1)
+
+    if [ ! $doo_opt = 'y' ] ; then
+        echo 'Recycle aborted.'
+    else
+        echo 'deleting files.'
+    fi
+}
+
+doo

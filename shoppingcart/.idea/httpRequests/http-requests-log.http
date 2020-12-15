@@ -1,0 +1,28 @@
+GET http://localhost:8089/cart/list
+
+<> 2020-05-19T101204.401.json
+
+###
+
+GET http://localhost:8089/cart/list
+
+<> 2020-05-19T100920.200.html
+
+###
+
+GET http://localhost:8089/cart/list
+
+<> 2020-05-19T100547.404.json
+
+###
+
+GET http://localhost:8089/cart/list
+
+<> 2020-05-19T100248.404.json
+
+###
+
+GET https://localhost:8089/cart/list
+
+###
+

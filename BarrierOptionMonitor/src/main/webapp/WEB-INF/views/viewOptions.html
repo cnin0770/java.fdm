@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Options</title>
+
+    <link href="/css/table.css" rel="stylesheet">
+    <link href="/css/background.css" rel="stylesheet">
+    <link href='/webjars/bootstrap/css/bootstrap.min.css' rel='stylesheet'>
+
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/webjars/vue/vue.min.js"></script>
+    <script src="/webjars/axios/dist/axios.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+    <script type="text/x-template" id="modal-template">
+        <transition name="modal">
+            <div class="modal-mask">
+                <div class="modal-wrapper">
+                    <div class="modal-container">
+                        <button class="btn btn-light float-right"
+                                @click="$emit('close')">
+                            X
+                        </button>
+                        <div class="modal-body">
+                            <slot name="body">
+                                No Date Found for Selected Stock
+                            </slot>
+                        </div>
+                        <div class="modal-footer" style="float:left;">
+                            <slot name="footer" style="float:left;">
+                            </slot>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </script>
+</head>
+<body style="background-image: url('images/image1.jpg');">
+
+<div th:replace="navbar :: header"></div>
+<div id="main">
+    <modal v-show="show_chart" @close="show_chart = false">
+        <canvas slot="body" id="stock_chart"></canvas>
+        <p slot="footer" v-if="time">
+            <strong>{{ status }} : </strong>{{ time }}
+        </p>
+        <p slot="footer" v-else>
+            <strong>Status:</strong> {{status}}
+        </p>
+        <p slot="footer">
+            <strong>Barrier Level:</strong> ${{ barrier }} <strong>Expiration
+            Date:</strong> {{ expiry }} <strong>Client:</strong> {{ client }}
+        </p>
+    </modal>
+    <div class="bg-text">
+        <div>
+            <h1>View Options</h1>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"
+                       id="is_refreshing" v-on:click="refresh_func"
+                       v-model="is_refreshing"> <label
+                    class="custom-control-label" for="is_refreshing">Auto
+                Refresh</label>
+            </div>
+            <div class="input-group mb-3" style="width: auto; float: right;">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Sort
+                        By</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01"
+                        v-model="sortBy">
+                    <option selected value="ALL">View All</option>
+                    <option value="KNOCKED_IN">Exercise</option>
+                    <option value="KNOCKED_OUT">Knocked-out</option>
+                    <option value="EXPIRED">Expired</option>
+                    <option value="WAITING">Waiting</option>
+                    <option value="EXERCISED">Exercised</option>
+                </select>
+            </div>
+        </div>
+        <table
+                style="color: black; background-color: lightgrey; opacity: 0.8; height: 200%;">
+            <thead>
+            <tr>
+                <th>Type of Option</th>
+                <th>American or European</th>
+                <th>Knock-in or Knock-out</th>
+                <th>Stock Symbol</th>
+                <th>Current Price</th>
+                <th>Premium Price</th>
+                <th>Strike Price</th>
+                <th>Quantity</th>
+                <th>Barrier Direction</th>
+                <th>Barrier Level</th>
+                <th>Client</th>
+                <th>Expiration Date</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(option, i) in options" :key="i"
+                v-if="sortBy === 'ALL' || option.status === sortBy">
+                <td :class="get_class(`${option.status}`)"><a> <a
+                        v-if="option.call">Call</a> <a v-else>Put</a>
+                </a></td>
+                <td :class="get_class(`${option.status}`)"><a
+                        v-if="option.american">American</a> <a v-else>European</a></td>
+                <td :class="get_class(`${option.status}`)"><a
+                        v-if="option.knockIn">Knock-In</a> <a v-else>Knock-Out</a></td>
+                <td :class="get_class(`${option.status}`)"
+                    v-on:click="draw(option.stockSymbol, option.barrierLevel), time=option.knockedTime, status = option.status, expiry=option.expirationDate, barrier=option.barrierLevel, client=option.client.name ">
+                    <a href="#"> {{ option.stockSymbol }} </a>
+                </td>
+                <td :class="get_class(`${option.status}`)">{{ option.currency }} ${{ option.currentPrice }}
+                </td>
+                <td :class="get_class(`${option.status}`)">${{ option.premium }}
+                </td>
+                <td :class="get_class(`${option.status}`)">${{ option.strikePrice }}
+                </td>
+                <td :class="get_class(`${option.status}`)">{{ option.quantity }}
+                </td>
+                <td :class="get_class(`${option.status}`)"><a
+                        v-if="option.barrierDirection">Up</a> <a v-else>Down</a></td>
+                <td :class="get_class(`${option.status}`)">${{ option.barrierLevel }}
+                </td>
+                <td :class="get_class(`${option.status}`)">{{ option.client.name }}
+                </td>
+                <td :class="get_class(`${option.status}`)">{{ option.expirationDate }}
+                </td>
+
+                <td :class="get_class(`${option.status}`)"><a
+                        v-if="option.status === 'KNOCKED_IN'" href="#"
+                        v-on:click="exercise(option.id)"> <strong>Exercise</strong>
+                </a> <a v-else-if="option.status === 'KNOCKED_OUT'">Knocked Out</a> <a
+                        v-else-if="option.status === 'EXPIRED'">Expired</a> <a
+                        v-else-if="option.status === 'EXERCISED'">Exercised</a> <a v-else>Waiting</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="/javascript/navbar.js"></script>
+<script src="/javascript/stock-chart.js"></script>
+<script>
+    Vue.component("modal", {
+        template: "#modal-template"
+    });
+
+    new Vue({
+        el: '#main',
+        data() {
+            return {
+                options: null,
+                is_refreshing: true,
+                refresh_every_seconds: 5,
+                refresh_id: null,
+                show_chart: false,
+                sortBy: "ALL",
+                myChart: null,
+                time: null,
+                status: null,
+                barrier: null,
+                expiry: null,
+                client: null
+            }
+        },
+        mounted() {
+            this.refresh_true();
+            this.remove();
+        },
+        methods: {
+            load_options: async function () {
+                let result = await axios.get("/api/options");
+                this.options = result.data;
+            },
+            refresh_func: function () {
+                let temp = this;
+                temp.is_refreshing = !temp.is_refreshing;
+                temp.refresh_true();
+                temp.refresh_false();
+            },
+            refresh_true: function () {
+                let temp = this;
+                if (!temp.is_refreshing) return;
+                temp.load_options();
+                temp.$nextTick(function () {
+                    temp.refresh_id = window.setInterval(() => {
+                        temp.load_options();
+                        console.log("refresh every " + temp.refresh_every_seconds + " seconds.");
+                    }, temp.refresh_every_seconds * 1000);
+                });
+            },
+            refresh_false: function () {
+                let temp = this;
+                if (temp.is_refreshing) return;
+                temp.load_options();
+                temp.$nextTick(function () {
+                    window.clearInterval(temp.refresh_id);
+                    console.log("stop refreshing.");
+                });
+            },
+            get_class: function (status) {
+                if (status === "KNOCKED_IN") {
+                    this.class = "Activated";
+                } else if (status === "EXPIRED" || status === "KNOCKED_OUT") {
+                    this.class = "Expired";
+                } else if (status === "EXERCISED") {
+                    this.class = "Exercised";
+                } else {
+                    this.class = "";
+                }
+                return this.class;
+            },
+            remove: function () {
+                this.total = 0;
+                axios.post("/api/notifications");
+            },
+            draw: async function (symbol, barrier) {
+                this.myChart = null;
+                await draw_line_chart("stock_chart", symbol, barrier);
+                this.show_chart = true;
+            },
+            exercise: async function (id) {
+                await axios.get("/api/options/exercises/" + id);
+                await this.load_options();
+            }
+        }
+    });
+</script>
+</body>
+</html>
